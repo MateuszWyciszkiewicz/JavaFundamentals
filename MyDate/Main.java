@@ -33,12 +33,7 @@ class MyData{
     private MyData(String dateString){
         this.parseString(dateString);
     }
-
-    private String returnDateString(){
-        String dateString = "day = " + this.day + ", month = " + this.month + ", year = " + this.year + ", weekday = " + this.weekday + "\n";
-        return dateString;
-    }
-    
+   
     private void parseString(String input){
         String[] splitedString = input.split(" ");
         splitedString = arrangeWeekdayAndDate(splitedString);
@@ -46,7 +41,7 @@ class MyData{
         this.decodeDate(splitedString[dateIndex]);
 
     }
-
+    
     private static String[] arrangeWeekdayAndDate(String[] splitedString){
         String temp = new String();
         if(!splitedString[weekdayIndex].matches("[a-zA-Z]+")){
@@ -59,7 +54,7 @@ class MyData{
     }
 
     private void decodeDate(String date){
-        String[] data = new String[3]; //remove this, return construtor, add default constructor
+        String[] data = new String[3];
         if(date.matches("../(.*)/....")){
             data = date.split("/");
             this.assignDateInformation(data[dayIndex], data[monthIndex], data[yearIndex]);
@@ -84,7 +79,7 @@ class MyData{
         this.month = -1;
         this.year = -1;
        }
-    }
+    } 
 
     public static int convertDate(){
         ArrayList<String> lines = new ArrayList<String>();
@@ -96,12 +91,24 @@ class MyData{
         for(int i = 0; i< lines.size() ; i++){
             MyData element = new MyData(lines.get(i));
 
-            if(!dates.contains(element.returnDateString())){
+            if(element.ableToWrite(dates)){
                 dates.add(element.returnDateString());
             }
         }
        int rewritenLines = writeLines(dates);
        return rewritenLines;
+    }
+
+    private String returnDateString(){
+        String dateString = "day = " + this.day + ", month = " + this.month + ", year = " + this.year + ", weekday = " + this.weekday + "\n";
+        return dateString;
+    }
+
+    private boolean ableToWrite(ArrayList<String> dates){
+        if(dates.contains(this.returnDateString()) || this.day == -1 || this.month == -1 || this.year == -1){
+            return false;
+        }
+        return true;
     }
 
     private static ArrayList<String> readLines(ArrayList<String> lines) {
@@ -123,7 +130,6 @@ class MyData{
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFile))){
            for(i = 0; i<= lines.size()-1; i++){
             bufferedWriter.write(lines.get(i));
-            i++;
            }
         }catch(Exception e){
             System.out.println("Error during writing to file");
