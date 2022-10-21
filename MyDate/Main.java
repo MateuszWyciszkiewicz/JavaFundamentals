@@ -4,31 +4,26 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-//TODO
-//add data validation
-//check for duplicates
-
 class Main{
+    private static String outputFile = "MyData.txt";
+    private static String inputFile = "InputData.txt";
     public static void main(String[] args){
-       int rewritenLines =  MyData.convertDate();
+       int rewritenLines =  MyData.convertDate(inputFile, outputFile);
        System.out.println("Number of rewriten dates: " + rewritenLines);
     }
 }
 
 class MyData{
-    public int day;
-    public int month;
-    public int year;
-    public String weekday;
+    private int day;
+    private int month;
+    private int year;
+    private String weekday;
     private final static int weekdayIndex = 0;
     private final static int dateIndex = 1;
     private final static int dayIndex = 0;
     private  final static int monthIndex = 1;
     private final static int yearIndex = 2;
-
-    private static String outputFile = "MyData.txt";
-    private static String inputFile = "InputData.txt";
-
+    private final static int wrongDateValue = -1;
 
     private MyData(String dateString){
         this.parseString(dateString);
@@ -75,16 +70,16 @@ class MyData{
         this.month = Integer.parseInt(month);
         this.year = Integer.parseInt(year);
        } catch(Exception e){
-        this.day = -1;
-        this.month = -1;
-        this.year = -1;
+        this.day = wrongDateValue;
+        this.month = wrongDateValue;
+        this.year = wrongDateValue;
        }
     } 
 
-    public static int convertDate(){
+    public static int convertDate(String inputFile, String outputFile){
         ArrayList<String> lines = new ArrayList<String>();
 
-        readLines(lines);
+        readLines(lines, inputFile);
 
         ArrayList<String> dates = new ArrayList<String>();
 
@@ -95,7 +90,7 @@ class MyData{
                 dates.add(element.returnDateString());
             }
         }
-       int rewritenLines = writeLines(dates);
+       int rewritenLines = writeLines(dates, outputFile);
        return rewritenLines;
     }
 
@@ -105,13 +100,20 @@ class MyData{
     }
 
     private boolean ableToWrite(ArrayList<String> dates){
-        if(dates.contains(this.returnDateString()) || this.day == -1 || this.month == -1 || this.year == -1){
+        if(dates.contains(this.returnDateString()) || this.isWrongDate()){
             return false;
         }
         return true;
     }
 
-    private static ArrayList<String> readLines(ArrayList<String> lines) {
+    private boolean isWrongDate(){
+        if(this.day == wrongDateValue || this.month == wrongDateValue || this.year == wrongDateValue){
+            return true;
+        }
+        return false;
+    }
+
+    private static ArrayList<String> readLines(ArrayList<String> lines, String inputFile) {
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile))){
             String line = bufferedReader.readLine();
             while(line != null) {
@@ -125,7 +127,7 @@ class MyData{
         return lines;
     }    
 
-    private static int writeLines(ArrayList<String> lines) {
+    private static int writeLines(ArrayList<String> lines, String outputFile) {
         int i = 0;
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFile))){
            for(i = 0; i<= lines.size()-1; i++){
