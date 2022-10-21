@@ -1,7 +1,5 @@
 day = 21, month = 6, year = 2017, weekday = Thursday
 day = 29, month = 1, year = 2019, weekday = Thursday
-day = -1, month = -1, year = -1, weekday = January
 day = 28, month = 1, year = 2019, weekday = Thursday
-day = -1, month = -1, year = -1, weekday = February
 day = 29, month = 11, year = 2019, weekday = Saturday
-day = 24, month = 7, year = 2019, weekday = Monday
+day = 21, month = 7, year = 2019, weekday = Monday
