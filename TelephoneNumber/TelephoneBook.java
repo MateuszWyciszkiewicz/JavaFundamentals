@@ -9,13 +9,13 @@ public class TelephoneBook {
 
     public void addPerson(String name, String surname, String address, int countryCode, int localNumber){
         TelephoneNumber tel = new TelephoneNumber(countryCode, localNumber);
-        Person per = new Person(surname, name, address);
+        Person per = new Person(surname, name, address, countryCode, localNumber);
         treemap.put(tel, per);
     }
 
     public void addCompany(String companyName, String address, int countrycode, int localNumber){
         TelephoneNumber tel = new TelephoneNumber(countrycode, localNumber);
-        Company com = new Company(companyName, address);
+        Company com = new Company(companyName, address, countrycode, localNumber);
         treemap.put(tel, com);
     }
 
