@@ -1,14 +1,14 @@
 public class Company extends TelephoneEntry {
-    public String companyName;
-    public Address address;
+    private String companyName;
+    private String address;
 
-    public Company(String companyName, Address address){
+    public Company(String companyName, String address){
         this.companyName = companyName;
         this.address = address;
     }
 
     public void description() {
         System.out.println("Name: " + this.companyName);
-        this.address.displayAddress();
+        System.out.println("Address: " + this.address);
     }
 }

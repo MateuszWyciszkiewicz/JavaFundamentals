@@ -1,9 +1,9 @@
 public class Person extends TelephoneEntry {
-    public String name;
-    public String lastName;
-    public Address address;
+    private String name;
+    private String lastName;
+    private String address;
 
-    public Person(String name, String lastName, Address address){
+    public Person(String name, String lastName, String address){
         this.name = name;
         this.lastName = lastName;
         this.address = address;
@@ -11,7 +11,8 @@ public class Person extends TelephoneEntry {
 
     public void description() {
         System.out.println("Name: " + this.name);
-        System.out.println("Last name: " + lastName);
-        this.address.displayAddress();
+        System.out.println("Last name: " + this.lastName);
+        System.out.println("Address: " + this.address);
+        
     }
 }

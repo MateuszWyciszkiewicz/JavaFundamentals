@@ -1,3 +1,5 @@
+
 public abstract class TelephoneEntry {
-    public abstract void description();
+    protected TelephoneNumber telephoneNumber;
+    protected abstract void description();
 }
