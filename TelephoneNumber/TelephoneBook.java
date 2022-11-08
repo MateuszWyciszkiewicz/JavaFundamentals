@@ -25,7 +25,7 @@ public class TelephoneBook {
         while (iterator.hasNext()) {
             Map.Entry<TelephoneNumber, TelephoneEntry> entry = iterator.next();
             TelephoneNumber telephoneNumber = (TelephoneNumber)entry.getKey();
-            System.out.print(telephoneNumber.returnNumberString());
+            System.out.print(telephoneNumber.returnNumberString() + ":\n");
             TelephoneEntry telephoneEntry = (TelephoneEntry)entry.getValue();
             telephoneEntry.description();
         }

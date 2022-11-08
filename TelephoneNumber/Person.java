@@ -11,9 +11,9 @@ public class Person extends TelephoneEntry {
     }
 
     public void description() {
-        System.out.println("Name: " + this.name);
-        System.out.println("Last name: " + this.lastName);
-        System.out.println("Address: " + this.address);
-        System.out.println("Telephone:" + this.telephoneNumber.returnNumberString());
+        System.out.println("\tName: " + this.name);
+        System.out.println("\tLast name: " + this.lastName);
+        System.out.println("\tAddress: " + this.address);
+        System.out.println("\tTelephone:" + this.telephoneNumber.returnNumberString());
     }
 }

@@ -9,8 +9,8 @@ public class Company extends TelephoneEntry {
     }
 
     public void description() {
-        System.out.println("Name: " + this.companyName);
-        System.out.println("Address: " + this.address);
-        System.out.println("Telephone: " + this.telephoneNumber.returnNumberString());
+        System.out.println("\tName: " + this.companyName);
+        System.out.println("\tAddress: " + this.address);
+        System.out.println("\tTelephone: " + this.telephoneNumber.returnNumberString());
     }
 }
