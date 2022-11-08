@@ -20,10 +20,10 @@ public class TelephoneBook {
     }
 
     public void printContent(){
-        Set set = this.treemap.entrySet();
-        Iterator i = set.iterator();
-        while (i.hasNext()) {
-            Map.Entry entry = (Map.Entry)i.next();
+        Set <Map.Entry<TelephoneNumber, TelephoneEntry>>set = this.treemap.entrySet();
+        Iterator <Map.Entry<TelephoneNumber, TelephoneEntry>>iterator = set.iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<TelephoneNumber, TelephoneEntry> entry = iterator.next();
             TelephoneNumber telephoneNumber = (TelephoneNumber)entry.getKey();
             System.out.print(telephoneNumber.returnNumberString());
             TelephoneEntry telephoneEntry = (TelephoneEntry)entry.getValue();
