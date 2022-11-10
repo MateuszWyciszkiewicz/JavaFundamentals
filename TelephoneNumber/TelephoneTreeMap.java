@@ -1,5 +1,4 @@
 import java.util.TreeMap;
-import java.util.Set;
 import java.util.Map;
 import java.util.Iterator;
 
@@ -20,8 +19,7 @@ public class TelephoneTreeMap {
     }
 
     public void printContent(){
-        Set <Map.Entry<TelephoneNumber, TelephoneEntry>>set = this.treemap.entrySet();
-        Iterator <Map.Entry<TelephoneNumber, TelephoneEntry>>iterator = set.iterator();
+        Iterator <Map.Entry<TelephoneNumber, TelephoneEntry>> iterator = this.treemap.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<TelephoneNumber, TelephoneEntry> entry = iterator.next();
             TelephoneNumber telephoneNumber = (TelephoneNumber)entry.getKey();
