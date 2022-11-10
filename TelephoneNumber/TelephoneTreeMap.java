@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Iterator;
 
 
-public class TelephoneBook {
+public class TelephoneTreeMap {
     private TreeMap<TelephoneNumber, TelephoneEntry> treemap = new TreeMap<TelephoneNumber, TelephoneEntry>(); 
 
     public void addPerson(String name, String surname, String address, int countryCode, int localNumber){
@@ -29,6 +29,5 @@ public class TelephoneBook {
             TelephoneEntry telephoneEntry = (TelephoneEntry)entry.getValue();
             telephoneEntry.description();
         }
-
     }
 }
