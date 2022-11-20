@@ -7,17 +7,16 @@ import java.io.FileWriter;
 public class TestVectors {
     public static void main(String[] args) {
         ArrayList<Vector> vectors = new ArrayList<Vector>(Integer.parseInt(args[0]));
-        Vector sum;
         boolean correctLengths = false;
         while (!correctLengths) {
             vectors = readVectors(Integer.parseInt(args[0]));
             try {
-                sum = Vector.sumVectors(vectors);
+                Vector sum = Vector.sumVectors(vectors);
                 writeToFile(sum.getVector().toString(), "result.txt");
                 correctLengths = true;
             } catch (DifferentVectorsLengthException e) {
                 e.printException();
-                System.out.println("Please input vectors one more time");
+                System.out.println("Please input vectors again");
                 correctLengths = false;
             } catch (IOException e) {
                 System.out.println("File error");
@@ -25,8 +24,6 @@ public class TestVectors {
                 vectors.clear();
             }
         }
-
-
     }
 
     private static ArrayList<Vector> readVectors(int count) {
