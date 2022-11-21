@@ -1,23 +1,12 @@
 public class DifferentVectorsLengthException extends Exception {
-    private int modelLength;
-    private int insertedLength;
-
-    DifferentVectorsLengthException(String message, int modelLength, int insertedLength) {
-        super(message);
-        this.modelLength = modelLength;
-        this.insertedLength = insertedLength;
+    private int[] lengths;
+	
+    public int[] getLengths(){
+        return lengths;
     }
 
-    public int getModelLength() {
-        return modelLength;
-    }
-
-    public int getInsertedLength() {
-        return insertedLength;
-    }
-
-    public void printException(){
-        this.printStackTrace();
-        System.out.println(this.getMessage() + ", addition of vectors with length: " + modelLength + " and " + insertedLength);
-    }
+	DifferentVectorsLengthException(int[] lengths, String message){
+		super(message);
+		this.lengths = lengths;
+	}
 }
