@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.FileWriter;
 
 
@@ -8,6 +9,7 @@ public class TestVectors {
     public static void main(String[] args) {
         ArrayList<Vector> vectors = new ArrayList<Vector>(Integer.parseInt(args[0]));
         boolean correctLengths = false;
+		System.out.println("please insert " + args[0] + " vectors:");
         while (!correctLengths) {
             vectors = readVectors(Integer.parseInt(args[0]));
             try {
@@ -15,7 +17,8 @@ public class TestVectors {
                 writeToFile(sum.getVector().toString(), "result.txt");
                 correctLengths = true;
             } catch (DifferentVectorsLengthException e) {
-                e.printException();
+                e.printStackTrace();
+                System.out.println("Inserted lengths of vectors:" + Arrays.toString(e.getLengths()));
                 System.out.println("Please input vectors again");
                 correctLengths = false;
             } catch (IOException e) {
