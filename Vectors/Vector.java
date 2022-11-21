@@ -30,20 +30,28 @@ public class Vector {
         return vector.size();
     }
 
-    public void add(Vector v) throws DifferentVectorsLengthException {
-        if(getSize() != v.getSize()){
-            throw new DifferentVectorsLengthException("Different lengths of vestors", this.getSize(), v.getSize());
+    public static Vector addAll(ArrayList<Vector> vectors) {
+        Vector sum = new Vector(vectors.get(0).getSize());
+        for (Vector vector : vectors) {
+            for(int i = 0; i < sum.getSize(); i++){
+            sum.vector.set(i, sum.vector.get(i) + vector.vector.get(i));
+            }
         }
-        for(int i = 0; i < getSize(); i++){
-            vector.set(i, this.vector.get(i) + v.vector.get(i));
-        }
+        return sum;
     }
 
     public static Vector sumVectors(ArrayList<Vector> vectors) throws DifferentVectorsLengthException {
-        Vector sum = new Vector(vectors.get(0).getSize());
+        int size = vectors.get(0).getSize();
         for (Vector vector : vectors) {
-            sum.add(vector);
+            if(vector.getSize() != size){
+                int[] lengths = new int[vectors.size()];
+				for(int i = 0; i < vectors.size(); i++){
+                    lengths[i] = vectors.get(i).getSize();
+                }
+                throw new DifferentVectorsLengthException(lengths, "Different lengths of vectors");
+            }
         }
+        Vector sum = addAll(vectors);
         return sum;
     }
 }
