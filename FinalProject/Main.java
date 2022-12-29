@@ -2,6 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import Exceptions.BadFieldNameException;
+import Exceptions.BadNumberOfArgumentsException;
+import Exceptions.BadSyntaxException;
+
 class Main {
     public static void main(String[] args) {
         System.out.println("Input query:");
@@ -42,7 +46,7 @@ class Main {
             table.createNewTable();
         } catch (BadSyntaxException e) {
             e.printStackTrace();
-            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
             System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +61,7 @@ class Main {
             insert.insertNewData();
         } catch (BadSyntaxException e) {
             e.printStackTrace();
-            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
             System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -75,7 +79,7 @@ class Main {
             select.selectData();
         } catch (BadSyntaxException e) {
             e.printStackTrace();
-            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
             System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,7 +102,7 @@ class Main {
             delete.deleteFromTable();
         } catch (BadSyntaxException e) {
             e.printStackTrace();
-            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
             System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,7 +117,7 @@ class Main {
             update.updateTable();
         } catch (BadSyntaxException e) {
             e.printStackTrace();
-            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
             System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();

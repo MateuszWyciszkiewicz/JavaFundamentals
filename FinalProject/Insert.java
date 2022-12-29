@@ -1,5 +1,9 @@
 import java.io.IOException;
 import java.io.Writer;
+
+import Exceptions.BadNumberOfArgumentsException;
+import Exceptions.BadSyntaxException;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
