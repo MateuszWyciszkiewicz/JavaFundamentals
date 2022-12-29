@@ -53,12 +53,35 @@ class Main {
                 e.printStackTrace();
                 System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
             }
+        } else if (query.contains("select")){
+            try {
+                Select select = new Select(query);
+                select.selectData();
+            } catch (BadSyntaxException e) {
+                e.printStackTrace();
+                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+                System.exit(1);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("IOException occured");
+                System.exit(1);
+            } catch (BadNumberOfArgumentsException e) {
+                e.printStackTrace();
+                System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
+                System.exit(1);
+            }catch (BadFieldNameException e) {
+                e.printStackTrace();
+                System.out.println("No field " + e.fieldName +" in the table");
+                System.exit(1);
+            }
         }
     }
 
     public static String prepareString(String query) {
         String newQuery;
-        newQuery = query.replaceAll("\\p{P}", "");
+        newQuery = query.replaceAll("[()]", "");
+        newQuery = newQuery.replaceAll(",", "");
         return newQuery;
     }
+
 }
