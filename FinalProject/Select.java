@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Select extends Query{
-    String filename;
 
     public Select(String query) {
         super(query);
