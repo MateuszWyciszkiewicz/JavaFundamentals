@@ -18,7 +18,7 @@ public class Insert extends Query{
         this.filename = this.content.get(2) + ".txt";
         String[] headers = getHeaders();
         String input = inputString();
-        if (headers.length != input.split(" ").length) {
+        if (headers.length != input.split("\t\t").length) {
             throw new BadNumberOfArgumentsException("Bad number of argument", headers.length, input.split(" ").length);
         }
         this.writeInput(input);

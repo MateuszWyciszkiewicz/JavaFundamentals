@@ -59,10 +59,10 @@ public class Select extends Query{
         String line = reader.readLine();
 
 			while (line != null) {
-                String[] tokens = line.split(" ");
+                String[] tokens = line.split("\t\t");
                 String output = "";
                 for(int i = 0; i < indexes.size(); i ++){
-                    output += tokens[indexes.get(i)] + " ";
+                    output += tokens[indexes.get(i)] + "\t\t";
 
                 }
 				System.out.println(output);

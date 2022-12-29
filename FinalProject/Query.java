@@ -17,7 +17,7 @@ public class Query {
     protected String[] getHeaders() throws IOException, FileNotFoundException{
         BufferedReader reader = new BufferedReader(new FileReader(this.filename));
         String line = reader.readLine();
-        String[] headers = line.split(" ");
+        String[] headers = line.split("\t\t");
         reader.close();
         return headers;
     }
