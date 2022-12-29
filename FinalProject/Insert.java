@@ -3,14 +3,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class Insert extends Query{
-    List<String> content;
     String filename;
 
     public Insert(String query) {
