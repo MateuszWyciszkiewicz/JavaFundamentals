@@ -7,12 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Select {
-    List<String> content;
+public class Select extends Query{
     String filename;
-    
+
     public Select(String query) {
-        this.content = getTokens(query);
+        super(query);
     }
 
     public void selectData()throws BadSyntaxException, IOException, BadFieldNameException, BadNumberOfArgumentsException{
@@ -88,14 +87,5 @@ public class Select {
             keys += this.content.get(i) + " ";
         }
         return keys.split(" ");
-    }
-
-    private static List<String> getTokens(String str) {
-        List<String> tokens = new ArrayList<>();
-        StringTokenizer tokenizer = new StringTokenizer(str, " ");
-        while (tokenizer.hasMoreElements()) {
-            tokens.add(tokenizer.nextToken());
-        }
-        return tokens;
     }
 }
