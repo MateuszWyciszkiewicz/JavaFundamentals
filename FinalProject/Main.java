@@ -49,6 +49,9 @@ class Main {
                 e.printStackTrace();
                 System.out.println("IOException occured");
                 System.exit(1);
+            } catch (BadNumberOfArgumentsException e) {
+                e.printStackTrace();
+                System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
             }
         }
     }

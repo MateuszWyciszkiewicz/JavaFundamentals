@@ -17,7 +17,7 @@ public class Insert {
         this.content = getTokens(query);
     }
 
-    public void insertNewData() throws BadSyntaxException, IOException {
+    public void insertNewData() throws BadSyntaxException, IOException, BadNumberOfArgumentsException {
         if (!this.content.get(0).equals("insert") || !this.content.get(1).equals("into")
                 || !this.content.get(3).equals("values")) {
             String errorString = this.content.get(0) + " " + this.content.get(1) + " " + this.content.get(2);
@@ -27,7 +27,7 @@ public class Insert {
         String[] headers = getHeaders();
         String input = inputString();
         if (headers.length != input.split(" ").length) {
-            throw new BadSyntaxException("Bad Syntax of insert", "insert into *name* values", input); // replace with bad value exception
+            throw new BadNumberOfArgumentsException("Bad number of argument", headers.length, input.split(" ").length);
         }
         this.writeInput(input);
     }
