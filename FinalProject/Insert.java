@@ -13,7 +13,7 @@ public class Insert extends Query{
         if (!this.content.get(0).equals("insert") || !this.content.get(1).equals("into")
                 || !this.content.get(3).equals("values")) {
             String errorString = this.content.get(0) + " " + this.content.get(1) + " " + this.content.get(2);
-            throw new BadSyntaxException("Bad Syntax of insert into", "insert into *name* values",errorString);
+            throw new BadSyntaxException("Bad Syntax", "insert into values",errorString);
         }
         this.filename = this.content.get(2) + ".txt";
         String[] headers = getHeaders();

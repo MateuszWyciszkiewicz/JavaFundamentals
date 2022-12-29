@@ -11,7 +11,7 @@ public class Table extends Query{
     public void createNewTable() throws BadSyntaxException, IOException {
         if(!this.content.get(0).equals("create") || !this.content.get(1).equals("table")){
             String errorString = this.content.get(0) + " " + this.content.get(1);
-            throw new BadSyntaxException("Bad Syntax of create table", "create table", errorString);
+            throw new BadSyntaxException("Bad Syntax", "create table", errorString);
         }
         this.filename = this.content.get(2) + ".txt";
        if(this.createFile()){
