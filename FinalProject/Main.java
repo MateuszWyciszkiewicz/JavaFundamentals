@@ -87,7 +87,20 @@ class Main {
                 e.printStackTrace();
                 System.out.println("IOException occured");
                 System.exit(1);
-            }
+            } 
+        } else if (query.contains("update")){
+            try {
+                Update update = new Update(query);
+                update.updateTable();
+            } catch (BadSyntaxException e) {
+                e.printStackTrace();
+                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+                System.exit(1);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("IOException occured");
+                System.exit(1);
+            } 
         }
     }
 
