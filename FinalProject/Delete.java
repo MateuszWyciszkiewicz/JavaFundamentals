@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.io.BufferedWriter;
@@ -17,21 +15,13 @@ public class Delete extends Query {
             throw new BadSyntaxException("Bad Syntax of delete from", "delete from",errorString);
         }
         this.filename = this.content.get(2) + ".txt";
-        String[] headers = getHeaders();
+        String[] headers = super.getHeaders();
         delete(headers);
 
     }
 
     private void delete(String[] headers) throws IOException{
         writeHeaders(headersString(headers));
-    }
-
-    private String[] getHeaders() throws IOException, FileNotFoundException {
-        BufferedReader reader = new BufferedReader(new FileReader(this.filename));
-        String line = reader.readLine();
-        String[] headers = line.split(" ");
-        reader.close();
-        return headers;
     }
 
     private void writeHeaders(String inputString) throws IOException{

@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.io.BufferedWriter;
@@ -32,14 +29,6 @@ public class Insert extends Query{
         input = new BufferedWriter(new FileWriter(this.filename, true)); 
         input.append(inputString + "\n");
         input.close();
-    }
-
-    private String[] getHeaders() throws IOException, FileNotFoundException {
-        BufferedReader reader = new BufferedReader(new FileReader(this.filename));
-        String line = reader.readLine();
-        String[] headers = line.split(" ");
-        reader.close();
-        return headers;
     }
 
     private String inputString() {

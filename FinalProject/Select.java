@@ -70,13 +70,6 @@ public class Select extends Query{
 			}
             reader.close();
     }
-    private String[] getHeaders() throws IOException, FileNotFoundException {
-        BufferedReader reader = new BufferedReader(new FileReader(this.filename));
-        String line = reader.readLine();
-        String[] headers = line.split(" ");
-        reader.close();
-        return headers;
-    }
 
     public String[] getKeys(){
         int limit = this.content.indexOf("from");
