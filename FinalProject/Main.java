@@ -69,7 +69,7 @@ class Main {
             System.exit(1);
         } catch (BadNumberOfArgumentsException e) {
             e.printStackTrace();
-            System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
+            System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
         }
     }
 
@@ -87,7 +87,7 @@ class Main {
             System.exit(1);
         } catch (BadNumberOfArgumentsException e) {
             e.printStackTrace();
-            System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
+            System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
             System.exit(1);
         }catch (BadFieldNameException e) {
             e.printStackTrace();
