@@ -1,17 +1,11 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
-public class Table {
-    
-    List<String> content;
-    String filename;
+public class Table extends Query{
 
     public Table(String query) {
-        this.content = getTokens(query); 
+        super(query);
     }
 
     public void createNewTable() throws BadSyntaxException, IOException {
@@ -41,14 +35,5 @@ public class Table {
         PrintWriter out = new PrintWriter(this.filename);
         out.println(headers);
         out.close();
-    }
-
-    public List<String> getTokens(String str) {
-        List<String> tokens = new ArrayList<>();
-        StringTokenizer tokenizer = new StringTokenizer(str, " ");
-        while (tokenizer.hasMoreElements()) {
-            tokens.add(tokenizer.nextToken());
-        }
-        return tokens;
     }
 }
