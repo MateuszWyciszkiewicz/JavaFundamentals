@@ -7,7 +7,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class Insert extends Query{
-    String filename;
 
     public Insert(String query) {
         super(query);
