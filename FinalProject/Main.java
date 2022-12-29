@@ -74,6 +74,20 @@ class Main {
                 System.out.println("No field " + e.fieldName +" in the table");
                 System.exit(1);
             }
+        } else if (query.contains("delete from")){
+
+            try {
+                Delete delete = new Delete(query);
+                delete.deleteFromTable();
+            } catch (BadSyntaxException e) {
+                e.printStackTrace();
+                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+                System.exit(1);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("IOException occured");
+                System.exit(1);
+            }
         }
     }
 
