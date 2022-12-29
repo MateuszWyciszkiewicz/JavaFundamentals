@@ -24,84 +24,102 @@ class Main {
     public static void parseQuery(String query) {
         query = prepareString(query);
         if (query.contains("create table")) {
-            try {
-                Table table = new Table(query);
-                table.createNewTable();
-            } catch (BadSyntaxException e) {
-                e.printStackTrace();
-                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
-                System.exit(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("IOException occured");
-                System.exit(1);
-            }
+            attemptCreateTable(query);
         } else if (query.contains("insert into")) {
-
-            try {
-                Insert insert = new Insert(query);
-                insert.insertNewData();
-            } catch (BadSyntaxException e) {
-                e.printStackTrace();
-                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
-                System.exit(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("IOException occured");
-                System.exit(1);
-            } catch (BadNumberOfArgumentsException e) {
-                e.printStackTrace();
-                System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
-            }
+            attemptInsertInto(query);
         } else if (query.contains("select")){
-            try {
-                Select select = new Select(query);
-                select.selectData();
-            } catch (BadSyntaxException e) {
-                e.printStackTrace();
-                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
-                System.exit(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("IOException occured");
-                System.exit(1);
-            } catch (BadNumberOfArgumentsException e) {
-                e.printStackTrace();
-                System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
-                System.exit(1);
-            }catch (BadFieldNameException e) {
-                e.printStackTrace();
-                System.out.println("No field " + e.fieldName +" in the table");
-                System.exit(1);
-            }
+            attemptSelect(query);
         } else if (query.contains("delete from")){
-
-            try {
-                Delete delete = new Delete(query);
-                delete.deleteFromTable();
-            } catch (BadSyntaxException e) {
-                e.printStackTrace();
-                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
-                System.exit(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("IOException occured");
-                System.exit(1);
-            } 
+            attemptDeleteFrom(query);
         } else if (query.contains("update")){
-            try {
-                Update update = new Update(query);
-                update.updateTable();
-            } catch (BadSyntaxException e) {
-                e.printStackTrace();
-                System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
-                System.exit(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("IOException occured");
-                System.exit(1);
-            } 
+            attemptUpdate(query);
         }
+    }
+
+    private static void attemptCreateTable(String query){
+        try {
+            Table table = new Table(query);
+            table.createNewTable();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+            System.exit(1);
+        }
+    }
+
+    private static void attemptInsertInto(String query){
+        try {
+            Insert insert = new Insert(query);
+            insert.insertNewData();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+            System.exit(1);
+        } catch (BadNumberOfArgumentsException e) {
+            e.printStackTrace();
+            System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
+        }
+    }
+
+    private static void attemptSelect(String query) {
+        try {
+            Select select = new Select(query);
+            select.selectData();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+            System.exit(1);
+        } catch (BadNumberOfArgumentsException e) {
+            e.printStackTrace();
+            System.out.println("Bad number of arguments, want:" + e.wantLength + " received: " + e.receivedLength);
+            System.exit(1);
+        }catch (BadFieldNameException e) {
+            e.printStackTrace();
+            System.out.println("No field " + e.fieldName +" in the table");
+            System.exit(1);
+        }
+    }
+
+    private static void attemptDeleteFrom(String query) {
+        try {
+            Delete delete = new Delete(query);
+            delete.deleteFromTable();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+            System.exit(1);
+        } 
+    }
+
+    private static void attemptUpdate(String query){
+        try {
+            Update update = new Update(query);
+            update.updateTable();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.want + " received: " + e.received);
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+            System.exit(1);
+        } 
     }
 
     public static String prepareString(String query) {
