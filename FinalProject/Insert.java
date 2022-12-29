@@ -34,7 +34,7 @@ public class Insert extends Query{
     private String inputString() {
         String input = "";
         for (int i = 4; i < this.content.size(); i++) {
-            input += this.content.get(i) + " ";
+            input += this.content.get(i) + "\t";
         }
         return input;
     }

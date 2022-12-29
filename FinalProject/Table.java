@@ -30,7 +30,7 @@ public class Table extends Query{
     private void fillWithContent() throws IOException{
         String headers = "";
         for(int i = 3; i < this.content.size(); i++){
-            headers += this.content.get(i) + " ";
+            headers += this.content.get(i) + "\t";
         }
         PrintWriter out = new PrintWriter(this.filename);
         out.println(headers);
