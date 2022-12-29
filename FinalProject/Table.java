@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import Exceptions.BadSyntaxException;
+
 public class Table extends Query{
 
     public Table(String query) {

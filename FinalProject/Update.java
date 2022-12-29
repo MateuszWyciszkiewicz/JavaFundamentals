@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Exceptions.BadSyntaxException;
+
 public class Update extends Query {
     public Update(String query){
         super(query);

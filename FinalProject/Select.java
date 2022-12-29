@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import Exceptions.BadFieldNameException;
+import Exceptions.BadNumberOfArgumentsException;
+import Exceptions.BadSyntaxException;
+
 public class Select extends Query{
 
     public Select(String query) {
