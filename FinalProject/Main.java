@@ -91,7 +91,7 @@ class Main {
             System.exit(1);
         }catch (BadFieldNameException e) {
             e.printStackTrace();
-            System.out.println("No field " + e.fieldName +" in the table");
+            System.out.println("No field " + e.getFieldname() +" in the table");
             System.exit(1);
         }
     }
