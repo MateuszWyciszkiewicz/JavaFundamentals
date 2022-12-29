@@ -4,6 +4,7 @@ import java.util.StringTokenizer;
 
 public class Query {
     List<String> content;
+    String filename;
 
     public Query(String query) {
         this.content = getTokens(query);
