@@ -9,12 +9,12 @@ import java.util.StringTokenizer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-public class Insert {
+public class Insert extends Query{
     List<String> content;
     String filename;
 
     public Insert(String query) {
-        this.content = getTokens(query);
+        super(query);
     }
 
     public void insertNewData() throws BadSyntaxException, IOException, BadNumberOfArgumentsException {
@@ -53,14 +53,5 @@ public class Insert {
             input += this.content.get(i) + " ";
         }
         return input;
-    }
-
-    private static List<String> getTokens(String str) {
-        List<String> tokens = new ArrayList<>();
-        StringTokenizer tokenizer = new StringTokenizer(str, " ");
-        while (tokenizer.hasMoreElements()) {
-            tokens.add(tokenizer.nextToken());
-        }
-        return tokens;
     }
 }
