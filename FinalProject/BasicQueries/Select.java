@@ -31,7 +31,7 @@ public class Select extends Query{
         readColumns(indexes);
     }
 
-    private List<Integer> assignIndexes(String[] keys, String[]headers) throws BadNumberOfArgumentsException, BadFieldNameException{
+    protected List<Integer> assignIndexes(String[] keys, String[]headers) throws BadNumberOfArgumentsException, BadFieldNameException{
         if( keys.length > headers.length) {
             throw new BadNumberOfArgumentsException("Bad number of arguments", headers.length, keys.length);
         }
@@ -46,7 +46,7 @@ public class Select extends Query{
         }
         return indexes;
     }
-    private void readAll() throws IOException{
+    protected void readAll() throws IOException{
         BufferedReader reader = new BufferedReader(new FileReader(this.filename));
 			String line = reader.readLine();
 
@@ -58,7 +58,7 @@ public class Select extends Query{
 			reader.close();
     }
 
-    private void readColumns(List<Integer> indexes) throws FileNotFoundException, IOException{
+    protected void readColumns(List<Integer> indexes) throws FileNotFoundException, IOException{
         BufferedReader reader = new BufferedReader(new FileReader(this.filename));
         String line = reader.readLine();
 
