@@ -26,7 +26,9 @@ class Main {
 
     public static void parseQuery(String query) {
         query = prepareString(query);
-        if (query.contains("create table")) {
+        if(query.contains("group by")){
+            attemptGroupBy(query);
+        } else if (query.contains("create table")) {
             attemptCreateTable(query);
         } else if (query.contains("insert into")) {
             attemptInsertInto(query);
@@ -36,6 +38,29 @@ class Main {
             attemptDeleteFrom(query);
         } else if (query.contains("update")){
             attemptUpdate(query);
+        }
+    }
+
+    private static void attemptGroupBy(String query){
+        try {
+            GroupBy groupBy = new GroupBy(query);
+            groupBy.selectData();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+            System.exit(1);
+        } catch (BadNumberOfArgumentsException e) {
+            e.printStackTrace();
+            System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
+            System.exit(1);
+        }catch (BadFieldNameException e) {
+            e.printStackTrace();
+            System.out.println("No field " + e.getFieldname() +" in the table");
+            System.exit(1);
         }
     }
 
