@@ -5,7 +5,7 @@ import Exceptions.BadFieldNameException;
 import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
 
-class Main {
+class Parser {
     public static void main(String[] args) {
         System.out.println("Input query:");
         String query = new String();
