@@ -37,7 +37,7 @@ public class Delete extends Query {
     private String headersString(String[] headers) {
         String input = "";
         for (int i = 0; i < headers.length; i++) {
-            input += headers[i] + " ";
+            input += headers[i] + "\t\t";
         }
         return input;
     }
