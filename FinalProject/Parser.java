@@ -6,15 +6,8 @@ import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
 
 class Parser {
-    public static void main(String[] args) {
-        System.out.println("Input query:");
-        String query = new String();
-        try {
-            query = readQuery();
-        } catch (IOException e) {
-            System.out.println("IOException occured");
-            System.exit(1);
-        }
+    public static void executeQuery(String query) {
+        System.out.println("Result of query \"" + query +"\":");
         parseQuery(query);
     }
 
