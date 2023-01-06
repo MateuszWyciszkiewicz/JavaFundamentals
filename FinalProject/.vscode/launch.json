@@ -13,9 +13,9 @@
         },
         {
             "type": "java",
-            "name": "Launch with JFX",
+            "name": "JFX launch",
             "request": "launch",
-            "mainClass": "App",
+            "mainClass": "ConsoleTextArea",
             "projectName": "FinalProject_f5e0df5",
             "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
         }
