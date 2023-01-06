@@ -90,9 +90,7 @@ public class ReaderThread implements Runnable{
         wait(800L); 
       } 
       catch (InterruptedException ie) {
-      }
-      System.out.println("****************************Console Started Successfully********************************************************");
-      
+      }      
     }
   }
 
