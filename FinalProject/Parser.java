@@ -1,9 +1,17 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import Exceptions.BadFieldNameException;
 import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
+import Queries.AdvancedQueries.GroupBy;
+import Queries.AdvancedQueries.WhereSelect;
+import Queries.BasicQueries.Delete;
+import Queries.BasicQueries.Insert;
+import Queries.BasicQueries.Select;
+import Queries.BasicQueries.Table;
+import Queries.BasicQueries.Update;
 
 class Parser {
     public static void executeQuery(String query) {
