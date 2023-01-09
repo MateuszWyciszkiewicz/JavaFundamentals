@@ -19,6 +19,7 @@ public class Table extends Query{
        if(this.createFile()){
             this.fillWithContent();
        }
+       System.out.println("Query create table successfully executed");
     }
 
     private boolean  createFile() throws IOException{

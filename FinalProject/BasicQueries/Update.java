@@ -24,7 +24,7 @@ public class Update extends Query {
         Map<String, String> map = parseRowsAndValues();
         String[] headers = getHeaders();
         this.update(headers, map);
-
+        System.out.println("Update table successfully executed");
     }
 
     private void update(String[] headers, Map<String, String> map) throws IOException{
