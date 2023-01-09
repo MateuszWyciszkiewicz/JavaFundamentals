@@ -19,7 +19,9 @@ class Parser {
 
     public static void parseQuery(String query) {
         query = prepareString(query);
-        if(query.contains("group by")){
+        if(query.contains("where")){
+            attemptWhereSelect(query);
+        } else if(query.contains("group by")){
             attemptGroupBy(query);
         } else if (query.contains("create table")) {
             attemptCreateTable(query);
@@ -34,6 +36,24 @@ class Parser {
         }
     }
 
+    private static void attemptWhereSelect(String query){
+        try {
+            WhereSelect where = new WhereSelect(query);
+            where.selectData();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+        } catch (BadNumberOfArgumentsException e) {
+            e.printStackTrace();
+            System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
+        }catch (BadFieldNameException e) {
+            e.printStackTrace();
+            System.out.println("No field " + e.getFieldname() +" in the table");
+        }
+    }
     private static void attemptGroupBy(String query){
         try {
             GroupBy groupBy = new GroupBy(query);
