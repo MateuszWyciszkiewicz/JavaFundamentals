@@ -7,6 +7,7 @@ import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
 import Queries.AdvancedQueries.GroupBy;
 import Queries.AdvancedQueries.WhereSelect;
+import Queries.AdvancedQueries.WhereUpdate;
 import Queries.BasicQueries.Delete;
 import Queries.BasicQueries.Insert;
 import Queries.BasicQueries.Select;
@@ -28,7 +29,7 @@ class Parser {
     public static void parseQuery(String query) {
         query = prepareString(query);
         if(query.contains("where")){
-            attemptWhereSelect(query);
+            attemptWhere(query);
         } else if(query.contains("group by")){
             attemptGroupBy(query);
         } else if (query.contains("create table")) {
@@ -44,6 +45,13 @@ class Parser {
         }
     }
 
+    private static void attemptWhere(String query){
+        if(query.contains("select")){
+            attemptWhereSelect(query);
+        } else if (query.contains("update")){
+            attemptWhereUpdate(query);
+        }
+    }
     private static void attemptWhereSelect(String query){
         try {
             WhereSelect where = new WhereSelect(query);
@@ -61,6 +69,19 @@ class Parser {
             e.printStackTrace();
             System.out.println("No field " + e.getFieldname() +" in the table");
         }
+    }
+
+    private static void attemptWhereUpdate(String query){
+        try {
+            WhereUpdate update = new WhereUpdate(query);
+            update.updateTable();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+        } 
     }
     private static void attemptGroupBy(String query){
         try {
