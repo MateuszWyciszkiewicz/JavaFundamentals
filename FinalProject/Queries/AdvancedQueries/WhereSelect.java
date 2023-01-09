@@ -44,19 +44,20 @@ public class WhereSelect extends Select {
         BufferedReader reader = new BufferedReader(new FileReader(this.filename));
         List<String> headersList = Arrays.asList(headers);
         String line = reader.readLine();
-
+            int iteration = 1;
 			while (line != null) {
                 String[] tokens = line.split("\t\t");
                 String output = "";
                 for(int i = 0; i < indexes.size(); i ++){
                     output += tokens[indexes.get(i)] + "\t\t";
-
                 }
                 boolean insert = evaluateCondition(tokens[headersList.indexOf(firstField)], tokens[headersList.indexOf(secondField)], condition);
+                if (iteration == 1) insert = true;
                 if (insert){
 				System.out.println(output);
                 }
 				line = reader.readLine();
+                iteration++;
 			}
             reader.close();
     }
@@ -66,13 +67,16 @@ public class WhereSelect extends Select {
         List<String> headersList = Arrays.asList(headers);
 			String line = reader.readLine();
 
+            int iteration = 1;
 			while (line != null) {
                 String[] tokens = line.split("\t\t");
                 boolean insert = evaluateCondition(tokens[headersList.indexOf(firstField)], tokens[headersList.indexOf(secondField)], condition);
+                if (iteration == 1) insert = true;
                 if(insert){
                     System.out.println(line);
                 }
 				line = reader.readLine();
+                iteration++;
 			}
 
 			reader.close();
