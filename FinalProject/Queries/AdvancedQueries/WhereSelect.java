@@ -80,12 +80,21 @@ public class WhereSelect extends Select {
 
     private static boolean evaluateCondition(String firstField, String secondField, String condition){
         if(condition.equals(">")){
-            return (firstField.compareTo(secondField) == 1);
+            try {
+                return Integer.parseInt(firstField) > Integer.parseInt(secondField);
+            }catch (Exception e) {}
+            return (firstField.compareTo(secondField) > 0);
         }
         if(condition.equals("<")){
-            return (firstField.compareTo(secondField) == -1);
+            try {
+                return Integer.parseInt(firstField) < Integer.parseInt(secondField);
+            }catch (Exception e) {}
+            return (firstField.compareTo(secondField) < 0);
         }
         if(condition.equals("=")){
+            try {
+                return Integer.parseInt(firstField) == Integer.parseInt(secondField);
+            }catch (Exception e) {}
             return (firstField.compareTo(secondField) == 0);
         }
         return false;
