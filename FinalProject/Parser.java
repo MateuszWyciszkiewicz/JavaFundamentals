@@ -41,19 +41,15 @@ class Parser {
         } catch (BadSyntaxException e) {
             e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException occured");
-            System.exit(1);
         } catch (BadNumberOfArgumentsException e) {
             e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         }catch (BadFieldNameException e) {
             e.printStackTrace();
             System.out.println("No field " + e.getFieldname() +" in the table");
-            System.exit(1);
         }
     }
 
@@ -64,11 +60,9 @@ class Parser {
         } catch (BadSyntaxException e) {
             e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException occured");
-            System.exit(1);
         }
     }
 
@@ -79,11 +73,9 @@ class Parser {
         } catch (BadSyntaxException e) {
             e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException occured");
-            System.exit(1);
         } catch (BadNumberOfArgumentsException e) {
             e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
@@ -97,19 +89,15 @@ class Parser {
         } catch (BadSyntaxException e) {
             e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException occured");
-            System.exit(1);
         } catch (BadNumberOfArgumentsException e) {
             e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         }catch (BadFieldNameException e) {
             e.printStackTrace();
             System.out.println("No field " + e.getFieldname() +" in the table");
-            System.exit(1);
         }
     }
 
@@ -120,11 +108,9 @@ class Parser {
         } catch (BadSyntaxException e) {
             e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException occured");
-            System.exit(1);
         } 
     }
 
@@ -135,11 +121,9 @@ class Parser {
         } catch (BadSyntaxException e) {
             e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
-            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException occured");
-            System.exit(1);
         } 
     }
 
