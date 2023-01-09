@@ -1,3 +1,4 @@
+package Queries.BasicQueries;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,6 +10,7 @@ import java.util.List;
 import Exceptions.BadFieldNameException;
 import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
+import Queries.Query;
 
 public class Select extends Query{
 

@@ -1,3 +1,4 @@
+package Queries;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,8 +8,8 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class Query {
-    List<String> content;
-    String filename;
+    protected List<String> content;
+    protected String filename;
 
     public Query(String query) {
         this.content = getTokens(query);

@@ -1,3 +1,4 @@
+package Queries.BasicQueries;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import Exceptions.BadSyntaxException;
+import Queries.Query;
 
 public class Update extends Query {
     public Update(String query){

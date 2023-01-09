@@ -1,3 +1,4 @@
+package Queries.AdvancedQueries;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -6,13 +7,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import Exceptions.BadFieldNameException;
 import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
+import Queries.BasicQueries.Select;
 
 public class GroupBy extends Select {
-    GroupBy(String query) {
+    public GroupBy(String query) {
         super(query);
     }
 

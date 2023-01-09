@@ -1,8 +1,10 @@
+package Queries.BasicQueries;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import Exceptions.BadSyntaxException;
+import Queries.Query;
 
 public class Table extends Query{
 

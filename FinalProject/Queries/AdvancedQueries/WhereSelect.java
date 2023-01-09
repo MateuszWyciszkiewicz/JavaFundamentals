@@ -1,3 +1,5 @@
+package Queries.AdvancedQueries;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,10 +10,11 @@ import java.util.List;
 import Exceptions.BadFieldNameException;
 import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
+import Queries.BasicQueries.Select;
 
 public class WhereSelect extends Select {
 
-    WhereSelect(String query) {
+    public WhereSelect(String query) {
         super(query);
     }
 
