@@ -68,7 +68,7 @@ public class Update extends Query {
         }
     }
 
-    private Map<String, String> parseRowsAndValues(){
+    protected Map<String, String> parseRowsAndValues(){
         Map <String, String> map = new HashMap<>();
 
         for(int i = 3; i < this.content.size(); i++){
