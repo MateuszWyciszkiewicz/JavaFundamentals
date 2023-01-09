@@ -54,13 +54,12 @@ public class ReaderThread implements Runnable{
         
         if (this.pipeIn.available() != 0)
         {
-          String input = readLine(this.pipeIn); //reading console output stream from pipedinputstream
+          String input = readLine(this.pipeIn); 
           this.txtArea.appendText(input);
         }
         if (this.quit) return;
       }
 
-      //while loop starting
       while (Thread.currentThread() == this.reader2) {
         try {
           wait(100L); 
@@ -75,10 +74,9 @@ public class ReaderThread implements Runnable{
            this.txtArea.appendText(input);
         }
 
-        if (this.quit) return; //if some one closed the stage then this check will be performed every time, if true 
-        //thread execution will be stopped.
+        if (this.quit) return; 
 
-      } //while loop ending here
+      }
 
     }
     catch (Exception e)

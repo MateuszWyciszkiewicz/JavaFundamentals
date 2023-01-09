@@ -25,17 +25,13 @@ public class ConsoleTextArea extends Application {
   @Override
   public void start(Stage stage) throws Exception {
     Parent root = FXMLLoader.load(getClass().getResource("ControllerFXML.fxml"));
-    // Console myConsole = new Console();
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
 
     txtArea = ControllerFXML.staticTxtArea;
 
-    // Thread execution for reading output stream
     executeReaderThreads();
-
-    // Thread closing on stag close event
     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
       @Override
       public void handle(WindowEvent e) {
@@ -48,7 +44,6 @@ public class ConsoleTextArea extends Application {
 
   }
 
-  // method to handle thread closing on stage closing
   synchronized void closeThread() {
     System.out.println("Message: Stage is closed.");
     this.quit = true;
@@ -66,9 +61,6 @@ public class ConsoleTextArea extends Application {
     System.exit(0);
   }
 
-  /**
-   * @param args the command line arguments
-   */
   public static void main(String[] args) {
     launch(args);
   }
