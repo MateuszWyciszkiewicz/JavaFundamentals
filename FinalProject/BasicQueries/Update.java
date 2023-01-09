@@ -17,7 +17,7 @@ public class Update extends Query {
     }
 
     public void updateTable() throws BadSyntaxException, IOException{
-        if(!this.content.get(0).equals("update") || !this.content.get(2).equals("set")){
+        if(!this.content.get(0).equalsIgnoreCase("update") || !this.content.get(2).equalsIgnoreCase("set")){
             throw new BadSyntaxException("Bad syntax", "update set", this.content.get(0) + " " + this.content.get(2));
         }
         this.filename = this.content.get(1) +".txt";

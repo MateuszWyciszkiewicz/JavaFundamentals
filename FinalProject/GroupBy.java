@@ -18,9 +18,9 @@ public class GroupBy extends Select {
 
     public void selectData()
             throws BadSyntaxException, IOException, BadFieldNameException, BadNumberOfArgumentsException {
-        if (!this.content.get(0).equals("select") || !this.content.get(this.content.size() - 5).equals("from")
-                || !this.content.get(this.content.size() - 3).equals("group")
-                || !this.content.get(this.content.size() - 2).equals("by")) {
+        if (!this.content.get(0).equalsIgnoreCase("select") || !this.content.get(this.content.size() - 5).equalsIgnoreCase("from")
+                || !this.content.get(this.content.size() - 3).equalsIgnoreCase("group")
+                || !this.content.get(this.content.size() - 2).equalsIgnoreCase("by")) {
             throw new BadSyntaxException("Bad syntax", " select from group by",
                     this.content.get(0) + " " + this.content.get(this.content.size() - 2) +
                             this.content.get(this.content.size() - 3) + " " +

@@ -13,7 +13,7 @@ public class Delete extends Query {
     }
 
     public void deleteFromTable() throws BadSyntaxException, FileNotFoundException, IOException{
-        if (!this.content.get(0).equals("delete") || !this.content.get(1).equals("from")) {
+        if (!this.content.get(0).equalsIgnoreCase("delete") || !this.content.get(1).equalsIgnoreCase("from")) {
             String errorString = this.content.get(0) + " " + this.content.get(1) + " ";
             throw new BadSyntaxException("Bad Syntax of delete from", "delete from",errorString);
         }

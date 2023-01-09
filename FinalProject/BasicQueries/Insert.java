@@ -14,8 +14,8 @@ public class Insert extends Query{
     }
 
     public void insertNewData() throws BadSyntaxException, IOException, BadNumberOfArgumentsException {
-        if (!this.content.get(0).equals("insert") || !this.content.get(1).equals("into")
-                || !this.content.get(3).equals("values")) {
+        if (!this.content.get(0).equalsIgnoreCase("insert") || !this.content.get(1).equalsIgnoreCase("into")
+                || !this.content.get(3).equalsIgnoreCase("values")) {
             String errorString = this.content.get(0) + " " + this.content.get(1) + " " + this.content.get(2);
             throw new BadSyntaxException("Bad Syntax", "insert into values",errorString);
         }

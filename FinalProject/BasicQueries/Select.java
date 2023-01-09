@@ -17,7 +17,7 @@ public class Select extends Query{
     }
 
     public void selectData()throws BadSyntaxException, IOException, BadFieldNameException, BadNumberOfArgumentsException{
-        if(!this.content.get(0).equals("select") || !this.content.get(this.content.size()-2).equals("from")){
+        if(!this.content.get(0).equalsIgnoreCase("select") || !this.content.get(this.content.size()-2).equalsIgnoreCase("from")){
             throw new BadSyntaxException("Bad syntax", " select from", this.content.get(0) + " " + this.content.get(this.content.size()-2));
         }
         this.filename = this.content.get(this.content.size()-1) +".txt";
