@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.PrintStream;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
