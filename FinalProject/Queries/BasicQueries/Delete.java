@@ -25,7 +25,7 @@ public class Delete extends Query {
 
     }
 
-    private void delete(String[] headers) throws IOException{
+    protected void delete(String[] headers) throws IOException{
         writeHeaders(headersString(headers));
     }
 
