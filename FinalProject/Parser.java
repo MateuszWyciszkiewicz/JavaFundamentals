@@ -43,6 +43,8 @@ class Parser {
             attemptDeleteFrom(query);
         } else if (query.contains("update")){
             attemptUpdate(query);
+        } else {
+            System.out.println("could not recognize query");
         }
     }
 
