@@ -22,7 +22,7 @@ public class Delete extends Query {
         this.filename = this.content.get(2) + ".txt";
         String[] headers = super.getHeaders();
         delete(headers);
-
+        System.out.println("Deletion from table successful");
     }
 
     protected void delete(String[] headers) throws IOException{
