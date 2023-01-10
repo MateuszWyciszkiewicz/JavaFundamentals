@@ -6,13 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch without JFX",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "FinalProject_f5e0df5"
-        },
-        {
-            "type": "java",
             "name": "JFX launch",
             "request": "launch",
             "mainClass": "ConsoleTextArea",
