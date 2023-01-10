@@ -53,11 +53,15 @@ public class ConsoleTextArea extends Application {
       this.reader.join(1000L);
       this.pipeIn.close();
     } catch (Exception e) {
+      System.out.println("Exception during closing thread");
+      System.exit(1);
     }
     try {
       this.reader2.join(1000L);
       this.pipeIn2.close();
     } catch (Exception e) {
+      System.out.println("Exception during closing thread");
+      System.exit(1);
     }
     System.exit(0);
   }
@@ -71,14 +75,18 @@ public class ConsoleTextArea extends Application {
       PipedOutputStream pout = new PipedOutputStream(this.pipeIn);
       System.setOut(new PrintStream(pout, true));
     } catch (IOException io) {
+      System.out.println("IOException occured");
     } catch (SecurityException se) {
+      System.out.println("SecurityException occured");
     }
 
     try {
       PipedOutputStream pout2 = new PipedOutputStream(this.pipeIn2);
       System.setErr(new PrintStream(pout2, true));
     } catch (IOException io) {
+      System.out.println("IOException occured");
     } catch (SecurityException se) {
+      System.out.println("SecurityException occured");
     }
 
     ReaderThread obj = new ReaderThread(pipeIn, pipeIn2, errorThrower, reader, reader2, quit, txtArea);
