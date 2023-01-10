@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch without JFX",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "FinalProject_f5e0df5"
+        },
+        {
+            "type": "java",
+            "name": "JFX launch",
+            "request": "launch",
+            "mainClass": "ConsoleTextArea",
+            "projectName": "FinalProject_f5e0df5",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}

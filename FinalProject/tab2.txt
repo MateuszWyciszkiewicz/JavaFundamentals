@@ -1,0 +1,6 @@
+row1		row2		row3		row4		
+liczby1		1		2		3		
+liczby2		3		2		1		
+liczby3		5		7		6		
+liczby4		11		4		2		
+liczby5		1		1		1		
