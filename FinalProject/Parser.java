@@ -6,6 +6,7 @@ import Exceptions.BadFieldNameException;
 import Exceptions.BadNumberOfArgumentsException;
 import Exceptions.BadSyntaxException;
 import Queries.AdvancedQueries.GroupBy;
+import Queries.AdvancedQueries.WhereDelete;
 import Queries.AdvancedQueries.WhereSelect;
 import Queries.AdvancedQueries.WhereUpdate;
 import Queries.BasicQueries.Delete;
@@ -50,8 +51,11 @@ class Parser {
             attemptWhereSelect(query);
         } else if (query.contains("update")){
             attemptWhereUpdate(query);
+        } else if (query.contains("delete")){
+            attemptWhereDelete(query);
         }
     }
+
     private static void attemptWhereSelect(String query){
         try {
             WhereSelect where = new WhereSelect(query);
@@ -83,6 +87,20 @@ class Parser {
             System.out.println("IOException occured");
         } 
     }
+
+    private static void attemptWhereDelete(String query){
+        try {
+            WhereDelete delete = new WhereDelete(query);
+            delete.deleteFromTable();
+        } catch (BadSyntaxException e) {
+            e.printStackTrace();
+            System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("IOException occured");
+        } 
+    }
+
     private static void attemptGroupBy(String query){
         try {
             GroupBy groupBy = new GroupBy(query);
