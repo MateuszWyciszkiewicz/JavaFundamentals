@@ -76,8 +76,6 @@ public class ConsoleTextArea extends Application {
       System.setOut(new PrintStream(pout, true));
     } catch (IOException io) {
       System.out.println("IOException occured");
-    } catch (SecurityException se) {
-      System.out.println("SecurityException occured");
     }
 
     try {
@@ -85,8 +83,6 @@ public class ConsoleTextArea extends Application {
       System.setErr(new PrintStream(pout2, true));
     } catch (IOException io) {
       System.out.println("IOException occured");
-    } catch (SecurityException se) {
-      System.out.println("SecurityException occured");
     }
 
     ReaderThread obj = new ReaderThread(pipeIn, pipeIn2, errorThrower, reader, reader2, quit, txtArea);
