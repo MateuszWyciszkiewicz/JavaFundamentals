@@ -25,7 +25,7 @@ public class Insert extends Query{
         String[] headers = getHeaders();
         String input = inputString();
         if (headers.length != input.split("\t\t").length) {
-            throw new BadNumberOfArgumentsException("Bad number of argument", headers.length, input.split(" ").length);
+            throw new BadNumberOfArgumentsException("Bad number of argument", headers.length, input.split("\t\t").length);
         }
         this.writeInput(input);
         System.out.println("Insert into table successful");
