@@ -10,10 +10,10 @@ public class ReaderThread implements Runnable {
 
   private TextArea txtArea;
 
-  ReaderThread(PipedInputStream pinInput, Thread reader1, boolean newflag, TextArea txtArea1) {
+  ReaderThread(PipedInputStream pinInput, Thread reader1, boolean state, TextArea txtArea1) {
     pipeIn = pinInput;
     reader = reader1;
-    quit = newflag;
+    quit = state;
     txtArea = txtArea1;
 
     this.quit = false;

@@ -33,7 +33,6 @@ public class ConsoleTextArea extends Application {
     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
       @Override
       public void handle(WindowEvent e) {
-
         closeThread();
         Platform.exit();
         System.exit(0);
@@ -43,7 +42,6 @@ public class ConsoleTextArea extends Application {
   }
 
   synchronized void closeThread() {
-    System.out.println("Message: Stage is closed.");
     this.quit = true;
     notifyAll();
     try {
@@ -68,7 +66,6 @@ public class ConsoleTextArea extends Application {
       System.out.println("IOException occured");
     }
     new ReaderThread(pipeIn, reader, quit, txtArea);
-
   }
 
 }
