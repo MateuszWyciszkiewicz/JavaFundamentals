@@ -49,7 +49,7 @@ public class ReaderThread implements Runnable{
         } 
         catch (InterruptedException ie) 
         {
-            System.out.println("I am in thread 1");
+            System.out.println("Interrupted thread 1");
         }
         
         if (this.pipeIn.available() != 0)
