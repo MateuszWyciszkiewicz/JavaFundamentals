@@ -85,7 +85,7 @@ public class ReaderThread implements Runnable{
 
     if (Thread.currentThread() == this.errorThrower) {
       try {
-        wait(800L); 
+        wait(200L); 
       } 
       catch (InterruptedException ie) {
       }      
