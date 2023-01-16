@@ -11,10 +11,10 @@ public class ReaderThread implements Runnable {
 
   private TextArea txtArea;
 
-  ReaderThread(PipedInputStream pinInput1, Thread errorThrower1, Thread reader11, boolean newflag, TextArea txtArea1) {
-    pipeIn = pinInput1;
+  ReaderThread(PipedInputStream pinInput, Thread errorThrower1, Thread reader1, boolean newflag, TextArea txtArea1) {
+    pipeIn = pinInput;
     errorThrower = errorThrower1;
-    reader = reader11;
+    reader = reader1;
     quit = newflag;
     txtArea = txtArea1;
 
@@ -35,7 +35,7 @@ public class ReaderThread implements Runnable {
         try {
           wait(100L);
         } catch (InterruptedException ie) {
-          System.out.println("Interrupted thread 1");
+          System.out.println("Interrupted thread");
         }
 
         if (this.pipeIn.available() != 0) {
@@ -49,12 +49,12 @@ public class ReaderThread implements Runnable {
     } catch (Exception e) {
     }
 
-    if (Thread.currentThread() == this.errorThrower) {
-      try {
-        wait(200L);
-      } catch (InterruptedException ie) {
-      }
-    }
+    // if (Thread.currentThread() == this.errorThrower) {
+    //   try {
+    //     wait(200L);
+    //   } catch (InterruptedException ie) {
+    //   }
+    // }
   }
 
   public synchronized String readLine(PipedInputStream in)
