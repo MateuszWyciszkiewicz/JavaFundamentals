@@ -30,7 +30,7 @@ public class ConsoleTextArea extends Application {
 
     txtArea = ControllerFXML.staticTxtArea;
 
-    executeReaderThreads();
+    executeReaderThread();
     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
       @Override
       public void handle(WindowEvent e) {
@@ -61,7 +61,7 @@ public class ConsoleTextArea extends Application {
     launch(args);
   }
 
-  public void executeReaderThreads() {
+  public void executeReaderThread() {
     try {
       PipedOutputStream pout = new PipedOutputStream(this.pipeIn);
       System.setOut(new PrintStream(pout, true));
