@@ -16,7 +16,6 @@ import javafx.stage.WindowEvent;
 public class ConsoleTextArea extends Application {
 
   private final PipedInputStream pipeIn = new PipedInputStream();
-  Thread errorThrower;
   private Thread reader;
   boolean quit;
   private TextArea txtArea;
@@ -68,7 +67,7 @@ public class ConsoleTextArea extends Application {
     } catch (IOException io) {
       System.out.println("IOException occured");
     }
-    ReaderThread obj = new ReaderThread(pipeIn, errorThrower, reader, quit, txtArea);
+    new ReaderThread(pipeIn, reader, quit, txtArea);
 
   }
 
