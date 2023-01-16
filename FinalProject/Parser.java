@@ -63,16 +63,12 @@ class Parser {
             WhereSelect where = new WhereSelect(query);
             where.selectData();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } catch (BadNumberOfArgumentsException e) {
-            e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
         }catch (BadFieldNameException e) {
-            e.printStackTrace();
             System.out.println("No field " + e.getFieldname() +" in the table");
         }
     }
@@ -82,10 +78,8 @@ class Parser {
             WhereUpdate update = new WhereUpdate(query);
             update.updateTable();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } 
     }
@@ -95,10 +89,8 @@ class Parser {
             WhereDelete delete = new WhereDelete(query);
             delete.deleteFromTable();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } 
     }
@@ -108,16 +100,12 @@ class Parser {
             GroupBy groupBy = new GroupBy(query);
             groupBy.selectData();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } catch (BadNumberOfArgumentsException e) {
-            e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
         }catch (BadFieldNameException e) {
-            e.printStackTrace();
             System.out.println("No field " + e.getFieldname() +" in the table");
         }
     }
@@ -127,10 +115,8 @@ class Parser {
             Table table = new Table(query);
             table.createNewTable();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         }
     }
@@ -140,13 +126,10 @@ class Parser {
             Insert insert = new Insert(query);
             insert.insertNewData();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } catch (BadNumberOfArgumentsException e) {
-            e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
         }
     }
@@ -156,16 +139,12 @@ class Parser {
             Select select = new Select(query);
             select.selectData();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } catch (BadNumberOfArgumentsException e) {
-            e.printStackTrace();
             System.out.println("Bad number of arguments, want:" + e.getWant() + " received: " + e.getReceived());
         }catch (BadFieldNameException e) {
-            e.printStackTrace();
             System.out.println("No field " + e.getFieldname() +" in the table");
         }
     }
@@ -175,10 +154,8 @@ class Parser {
             Delete delete = new Delete(query);
             delete.deleteFromTable();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } 
     }
@@ -188,10 +165,8 @@ class Parser {
             Update update = new Update(query);
             update.updateTable();
         } catch (BadSyntaxException e) {
-            e.printStackTrace();
             System.out.println("bad syntax, want: " + e.getWant() + " received: " + e.getReceived());
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("IOException occured");
         } 
     }
