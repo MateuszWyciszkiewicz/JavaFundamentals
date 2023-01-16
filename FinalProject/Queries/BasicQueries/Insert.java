@@ -28,6 +28,7 @@ public class Insert extends Query{
             throw new BadNumberOfArgumentsException("Bad number of argument", headers.length, input.split(" ").length);
         }
         this.writeInput(input);
+        System.out.println("Insert into table successful");
     }
 
     private void writeInput(String inputString) throws IOException{
